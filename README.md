@@ -1,15 +1,14 @@
 ---
 title: README
-date: 2024-08-27 15:49
+date: 2024-08-27 23:37
 author: II-777
 tags: goit-react hw-07
 ---
 
 # goit-react-hw-07
-
 ## PROJECT STRUCTURE:
 ```plaintext
-.src/
+./src
 ├── components
 │   ├── App.jsx
 │   ├── App.module.css
@@ -22,6 +21,8 @@ tags: goit-react hw-07
 │   ├── ContactList
 │   │   ├── ContactList.jsx
 │   │   └── ContactList.module.css
+│   ├── Loader
+│   │   └── Loader.jsx
 │   ├── SearchBox
 │   │   ├── SearchBox.jsx
 │   │   └── SearchBox.module.css
@@ -31,9 +32,10 @@ tags: goit-react hw-07
 ├── index.css
 ├── main.jsx
 └── redux
+    ├── contactsOps.js
     ├── contactsSlice.js
     ├── filtersSlice.js
     └── store.js
 
-7 directories, 17 files
+8 directories, 19 files
 ```
