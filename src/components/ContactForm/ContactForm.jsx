@@ -1,7 +1,8 @@
-import { useDispatch } from 'react-redux';
+// src/components/ContactForm/ContactForm.jsx
+import { nanoid } from 'nanoid';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { addContact } from '../../redux/contactsOps';
+import useStore from '../../store'; // Import the Zustand store
 import css from './ContactForm.module.css';
 
 // Validation schema for the form
@@ -20,19 +21,16 @@ const validationSchema = Yup.object().shape({
 
 // ContactForm Component
 export default function ContactForm() {
-  const dispatch = useDispatch();
+  const addContact = useStore(state => state.contacts.addContact);
 
   // Handle form submission
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(addContact({ name: values.name, number: values.number }))
-      .unwrap()
-      .then(() => {
-        resetForm();
-      })
-      .catch((error) => {
-        // Handle error (optional)
-        console.error('Failed to add contact:', error);
-      });
+    addContact({
+      id: nanoid(),
+      name: values.name,
+      number: values.number,
+    });
+    resetForm();
   };
 
   // Initial values for the form

@@ -1,3 +1,4 @@
+// src/components/Contact/Contact.jsx
 import css from './Contact.module.css';
 import { FaUser } from 'react-icons/fa';
 import { ImPhone } from "react-icons/im";
@@ -9,7 +10,7 @@ export default function Contact({ data: { id, name, number }, onDelete }) {
         <p className={css.name}>
           <FaUser className={css.icon} /> {name}
         </p>
-        <p className={css.phone}>
+        <p className={css.number}>
           <ImPhone className={css.icon} /> {number}
         </p>
       </div>
