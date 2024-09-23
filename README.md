@@ -5,10 +5,10 @@ author: II-777
 tags: goit-react hw-07 vite react zustand
 ---
 
-# goit-react-hw-07
+# goit-from-react-to-zustand 
 ## PROJECT STRUCTURE:
 ```plaintext
-./src
+.
 ├── components
 │   ├── App.jsx
 │   ├── App.module.css
@@ -21,8 +21,6 @@ tags: goit-react hw-07 vite react zustand
 │   ├── ContactList
 │   │   ├── ContactList.jsx
 │   │   └── ContactList.module.css
-│   ├── Loader
-│   │   └── Loader.jsx
 │   ├── SearchBox
 │   │   ├── SearchBox.jsx
 │   │   └── SearchBox.module.css
@@ -31,11 +29,7 @@ tags: goit-react hw-07 vite react zustand
 │       └── Stats.module.css
 ├── index.css
 ├── main.jsx
-└── redux
-    ├── contactsOps.js
-    ├── contactsSlice.js
-    ├── filtersSlice.js
-    └── store.js
+└── store.js
 
-8 directories, 19 files
+6 directories, 15 files
 ```
