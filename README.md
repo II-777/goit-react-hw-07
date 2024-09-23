@@ -1,8 +1,8 @@
 ---
 title: README
-date: 2024-08-27 23:37
+date: 2024-09-22 20:51
 author: II-777
-tags: goit-react hw-07
+tags: goit-react hw-07 vite react zustand
 ---
 
 # goit-react-hw-07
