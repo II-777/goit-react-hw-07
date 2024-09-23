@@ -1,14 +1,12 @@
-import React from 'react';
+// src/components/Stats/Stats.jsx
 import { TbFilterSearch } from "react-icons/tb";
 import { FaPeopleGroup } from "react-icons/fa6";
-import { useSelector } from 'react-redux';
+import useStore from '../../store'; // Import the Zustand store
 import css from './Stats.module.css';
-import { selectContacts } from '../../redux/contactsSlice';
-import { selectNameFilter } from '../../redux/filtersSlice';
 
 const Stats = () => {
-  const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectNameFilter);
+  const contacts = useStore(state => state.contacts.items);
+  const filter = useStore(state => state.filters.name);
 
   const totalContactsCount = contacts.length;
   const visibleContactsCount = contacts.filter((contact) =>

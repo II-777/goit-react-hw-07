@@ -1,28 +1,25 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsOps';
-import { selectFilteredContacts } from '../../redux/contactsSlice';
+// src/components/ContactList/ContactList.jsx
 import Contact from '../Contact/Contact';
 import css from './ContactList.module.css';
+import useStore from '../../store'; // Import the Zustand store
 
 export default function ContactList() {
-  const contacts = useSelector(selectFilteredContacts);
-  const dispatch = useDispatch();
+  const contacts = useStore(state => state.contacts.items);
+  const filter = useStore(state => state.filters.name);
+  const deleteContact = useStore(state => state.contacts.deleteContact);
+
+  const visibleContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
   const handleDelete = (contactId) => {
-    dispatch(deleteContact(contactId))
-      .unwrap()
-      .then(() => {
-      })
-      .catch((error) => {
-        console.error('Failed to delete contact:', error);
-      });
+    deleteContact(contactId);
   };
 
   return (
     <ul className={css.list}>
-      {contacts.length > 0 ? (
-        contacts.map((contact) => (
+      {visibleContacts.length > 0 ? (
+        visibleContacts.map((contact) => (
           <li className={css.item} key={contact.id}>
             <Contact data={contact} onDelete={() => handleDelete(contact.id)} />
           </li>
